@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>less CSS3 Please!</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet/less" type="text/css" href="css/css3.less">
+        <script src="js/less.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <!--
+        
+        * insiration from clearless
+        * takes less and compiles to css3
+        * no copy and paste (users can either copy less or css3)
+        * no demo
+        * compile less on the fly by changing values (content-editable)
+        * maybe integrate something like prism
+        * use that adobe font
+        * use content editable rather than that input method
+
+        -->
+
+        <header>
+            <h1>less CSS3 Please!</h3>
+        </header>
+
+        <section class="less">
+            <h1>Less css</h1>
+
+            <div class="code-block">
+                .box-round (@radius: <b>12px</b>) {
+                    -webkit-border-radius: @radius;
+                    border-radius: @radius;
+                    -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+                }
+            </div>
+        </section>
+
+        <section class="css3">
+            <h1>css3 (generated)</h1>
+
+            <div class="code-block">
+                .box-round {
+                    -webkit-border-radius: 12px;
+                    border-radius: 12px;
+                    -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+                }
+            </div>
+        </section>
+
+    </body>
+</html>
