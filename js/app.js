@@ -4,26 +4,32 @@
 var css3lessplease = (function () {
     var parser = new(less.Parser),
         selectors = {
-            compile: ".compile"
-        }
+            compile: ".compile",
+            css: "#css"
+        };
 
-    function lessParser (less, output) {
+    function lessParser(less, output) {
         var options = {
             removeComments: true // do this
-        }
+        },
+        css;
         parser.parse(less, function (err, tree) {
             if (err) {
                 output.html(err);
                 return;
             }
-            output.html(tree.toCSS());
+            css = tree.toCSS();
+            output.html(css);
+            applyCss(css);
         });
     }
 
-    return {   
-        init: function() {
-            // $(".code pre").html($(".code span").html().trim());
+    function applyCss(css) {
+        $(selectors.css).append(css);
+    }
 
+    return {
+        init: function () {
             $(selectors.compile).on("click", function () {
                 var less,
                     output,
@@ -35,7 +41,7 @@ var css3lessplease = (function () {
                 lessParser(less, output);
             });
         }
-    }
+    };
 }());
 
 css3lessplease.init();
