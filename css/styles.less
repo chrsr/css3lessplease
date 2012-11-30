@@ -2,10 +2,11 @@
 @import "css3.less";
 
 body {
+    width: 100%;
     padding: 0;
     margin: 0;
-    background-color: #0C1021;
-    font-family: monospace;
+    background-color: #293c4a;
+    font-family: 'Source Code Pro', sans-serif;
     font-size: 100%;
     line-height: 1.6em;
     color: #fff;
@@ -15,12 +16,12 @@ body {
     position: fixed;
     top: 0;
     right: 0;
+    z-index: 100;
     margin: 20px;
     padding: 0.5em;
     width: 250px;
-    height: 250px;
     border: solid 4px #fff;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(0, 0, 0, 0.9);
     font-size: 2em;
 }
 
@@ -28,6 +29,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 1.2em;
+    color: #f16eaa;
 }
 
 .box p {
@@ -41,15 +43,16 @@ header {
 
 header h1 {
     padding: 0;
-    margin: 0 0 0 0.4em;
+    margin: 0 0 0 0.7em;
     font-size: 3em;
-    font-family: georgia,garamond,serif;
+    font-family: 'Source Code Pro', sans-serif;
     font-weight: normal;
-    color: #08f;
+    color: #81c267;
 }
 
 section {
     float: left;
+    width: 100%;
     font-size: 1em;
     padding: 0.4em 0;
 }
@@ -75,27 +78,39 @@ section.css3 {
 
 .code,
 .output {
-    color: #8DA6CE;
+    color: #bebdbd;
     padding: 0 2em;
 }
 
 .code h2 {
-    max-width: 600px;
-    padding: 0.25em;
-    background: rgba(255, 255, 255, 0.2);
-    color: #d8fa3c;
+    overflow: hidden;
+    position: relative;
+    padding: 0.5em;
+    margin-right: 300px;
+    background: #2a2a2a;
+    color: #1dbec8;
+    font-weight: normal;
+    vertical-align: center;
 }
 
 .code pre,
 .output pre {
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
 .output pre {
-    color: #61ce3c;
+    color: #dec065;
 }
 
 .compile {
-    color: #ff6400;
+    position: absolute;
+    top: 0.6em;
+    right: 0.6em;
+    padding: 3px 6px;
+    font-size: 12px;
+    text-align: center;
+    color: #81c267;
     cursor: pointer;
+    text-decoration: none;
+    border: solid 1px #81c267;
 }

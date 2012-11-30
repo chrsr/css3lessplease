@@ -10,9 +10,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
+        <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet/less" href="css/css3.less">
         <link rel="stylesheet/less" href="css/styles.less">
+
         <script src="js/less-1.3.1.min.js" type="text/javascript"></script>
     </head>
     <body>
@@ -20,9 +22,9 @@
         <!--
         TODO
         * Parameterize the less mixins
-        * use content editable rather than that input method ?
-        * maybe integrate something like prism for code
-        * use Source Code Pro
+        * content editable to edit values
+        * maybe integrate something like prism for code preview
+        * font: Source Code Pro
         -->
 
         <header>
@@ -40,8 +42,8 @@
             <div class="rule">
 
                 <div class="code less">
-                    <h2>Border radius</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Border radius <u class="compile">run</u></h2>
+                    
 <pre>
 .box-round (@radius: 12px) {
     -webkit-border-radius: @radius;
@@ -50,7 +52,7 @@
 }
 
 .box {
-    .box-round(10px);
+    .box-round(24px);
 }</pre>
                 </div>
 
@@ -64,16 +66,16 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Box shadow</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Box shadow <u class="compile">run</u></h2>
+                    
 <pre>
-.box-shadow () {
-    -webkit-box-shadow: 0px 0px 4px 0px #ff0000;
-    box-shadow: 0px 0px 4px 0px #ff0000;
+.box-shadow (@shadow: 1px 1px 2px rgba(0,0,0,0.25)) {
+    -webkit-box-shadow: @shadow;
+    box-shadow: @shadow;
 }
 
 .box {
-    .box-shadow();
+    .box-shadow(4px 4px 8px rgba(0,0,0,0.25));
 }</pre>
                 </div>
 
@@ -87,8 +89,8 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Box gradient</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Box gradient <u class="compile">run</u></h2>
+                    
 <pre>
 .box-gradient () {
     background-color: #444444;
@@ -114,8 +116,8 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Box rgba</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Box rgba <u class="compile">run</u></h2>
+                    
 <pre>
 .box-rgba () {
     background-color: transparent;
@@ -137,19 +139,19 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Box rotate</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Box rotate <u class="compile">run</u></h2>
+                    
 <pre>
-.box-rotate () {
-    -webkit-transform: rotate(7.5deg);
-    -moz-transform: rotate(7.5deg);
-    -ms-transform: rotate(7.5deg);
-    -o-transform: rotate(7.5deg);
-    transform: rotate(7.5deg);
+.box-rotate (@rotation: 90deg) {
+    -webkit-transform: rotate(@rotation);
+    -moz-transform: rotate(@rotation);
+    -ms-transform: rotate(@rotation);
+    -o-transform: rotate(@rotation);
+    transform: rotate(@rotation);
 }
 
 .box {
-    .box-rotate();
+    .box-rotate(7.5deg);
 }</pre>
                 </div>
 
@@ -163,19 +165,19 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Box scale</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Box scale <u class="compile">run</u></h2>
+                    
 <pre>
-.box-scale () {
-    -webkit-transform: scale(0.8); 
-    -moz-transform: scale(0.8); 
-    -ms-transform: scale(0.8); 
-    -o-transform: scale(0.8); 
-    transform: scale(0.8);
+.box-scale (@scale: 2) {
+    -webkit-transform: scale(@scale); 
+    -moz-transform: scale(@scale); 
+    -ms-transform: scale(@scale); 
+    -o-transform: scale(@scale); 
+    transform: scale(@scale);
 }
 
 .box {
-    .box-scale();
+    .box-scale(0.8);
 }</pre>
                 </div>
 
@@ -189,8 +191,8 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Box 3d transforms</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Box 3d transforms <u class="compile">run</u></h2>
+                    
 <pre>
 .box-3dtransforms () {
     -webkit-perspective: 300; 
@@ -218,8 +220,8 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Box 3d transforms</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Box 3d transforms <u class="compile">run</u></h2>
+                    
 <pre>
 .box-transition () {
     -webkit-transition: all 0.3s ease-out;
@@ -243,8 +245,8 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Box textshadow</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Box textshadow <u class="compile">run</u></h2>
+                    
 <pre>
 .box-textshadow () {
     text-shadow: 1px 1px 3px #888;
@@ -265,8 +267,8 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Box opacity</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Box opacity <u class="compile">run</u></h2>
+                    
 <pre>
 .box-opacity () {
     opacity: 0.9;
@@ -287,8 +289,8 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Box sizing</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Box sizing <u class="compile">run</u></h2>
+                    
 <pre>
 .box-sizing () {
     -webkit-box-sizing: border-box;
@@ -311,8 +313,8 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Background size</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Background size <u class="compile">run</u></h2>
+                    
 <pre>
 .box-bgsize () {
     -webkit-background-size: 100% 100%;
@@ -334,8 +336,8 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Box columns</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Box columns <u class="compile">run</u></h2>
+                    
 <pre>
 .box-columns () {
     -webkit-column-count: 2;
@@ -361,8 +363,8 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Animation</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Animation <u class="compile">run</u></h2>
+                    
 <pre>
 .box-animation () {
     -webkit-animation: myanim 5s infinite;
@@ -406,8 +408,8 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Font face</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Font face <u class="compile">run</u></h2>
+                    
 <pre>
 .font-face () {
     font-family: 'WebFont';
@@ -429,8 +431,8 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Tab size</h2>
-                    <u class="compile">parse &amp; apply</u>
+                    <h2>Tab size <u class="compile">run</u></h2>
+                    
 <pre>
 .tab-size () {
     -moz-tab-size: 2;
