@@ -87,22 +87,22 @@
 
             <!-- begin rule -->
             <div class="rule">
-                
+
                 <div class="code less">
                     <h2>Box gradient <u class="compile">run</u></h2>
-                    
+
 <pre>
-.box-gradient () {
-    background-color: #444444;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#444444), to(#999999));
-    background-image: -webkit-linear-gradient(top, #444444, #999999);
-    background-image:    -moz-linear-gradient(top, #444444, #999999);
-    background-image:      -o-linear-gradient(top, #444444, #999999);
-    background-image:         linear-gradient(to bottom, #444444, #999999);
+.box-gradient (@from: #444444, @to: #999999) {
+    background-color: @from;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
+    background-image: -webkit-linear-gradient(top, @from, @to);
+    background-image:    -moz-linear-gradient(top, @from, @to);
+    background-image:      -o-linear-gradient(top, @from, @to);
+    background-image:         linear-gradient(top bottom, @from, @to);
 }
 
 .box {
-    .box-gradient();
+    .box-gradient(#ff0000, #0000ff);
 }</pre>
                 </div>
 
@@ -119,13 +119,13 @@
                     <h2>Box rgba <u class="compile">run</u></h2>
                     
 <pre>
-.box-rgba () {
+.box-rgba (@r: 0, @g: 0, @b: 0, @opacity: 0.5) {
     background-color: transparent;
-    background-color: rgba(180, 180, 144, 0.6); 
+    background-color: rgba(@r, @g, @b, @opacity); 
 }
 
 .box {
-    .box-rgba();
+    .box-rgba(180, 180, 144, 0.6);
 }</pre>
                 </div>
 
@@ -192,21 +192,21 @@
                 
                 <div class="code less">
                     <h2>Box 3d transforms <u class="compile">run</u></h2>
-                    
+
 <pre>
-.box-3dtransforms () {
-    -webkit-perspective: 300; 
-    -moz-perspective: 300; 
-    -ms-perspective: 300; 
-    perspective: 300;
-    -webkit-transform: rotateY(180deg);  -webkit-transform-style: preserve-3d;
-    -moz-transform: rotateY(180deg);     -moz-transform-style: preserve-3d;
-    -ms-transform: rotateY(180deg);      -ms-transform-style: preserve-3d;
-    transform: rotateY(180deg);          transform-style: preserve-3d;
+.box-3dtransforms (@perspective: 300, @rotateY: 180deg) {
+    -webkit-perspective: @perspective; 
+    -moz-perspective: @perspective; 
+    -ms-perspective: @perspective; 
+    perspective: @perspective;
+    -webkit-transform: rotateY(@rotateY);  -webkit-transform-style: preserve-3d;
+    -moz-transform: rotateY(@rotateY);     -moz-transform-style: preserve-3d;
+    -ms-transform: rotateY(@rotateY);      -ms-transform-style: preserve-3d;
+    transform: rotateY(@rotateY);          transform-style: preserve-3d;
 }
 
 .box {
-    .box-3dtransforms();
+    .box-3dtransforms(300, 180deg);
 }</pre>
                 </div>
 
@@ -220,18 +220,18 @@
             <div class="rule">
                 
                 <div class="code less">
-                    <h2>Box 3d transforms <u class="compile">run</u></h2>
-                    
+                    <h2>Box transition <u class="compile">run</u></h2>
+
 <pre>
-.box-transition () {
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
+.box-transition (@transition: all 0.3s ease-out) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
 }
 
 .box {
-    .box-transition();
+    .box-transition(all 0.5s ease-in);
 }</pre>
                 </div>
 
@@ -246,14 +246,14 @@
                 
                 <div class="code less">
                     <h2>Box textshadow <u class="compile">run</u></h2>
-                    
+
 <pre>
-.box-textshadow () {
-    text-shadow: 1px 1px 3px #888;
+.box-textshadow (@shadow: 1px 1px 3px #fff) {
+    text-shadow: @shadow;
 }
 
 .box {
-    .box-textshadow();
+    .box-textshadow(1px 1px 3px #fff);
 }</pre>
                 </div>
 
@@ -268,14 +268,14 @@
                 
                 <div class="code less">
                     <h2>Box opacity <u class="compile">run</u></h2>
-                    
+
 <pre>
-.box-opacity () {
-    opacity: 0.9;
+.box-opacity (@opacity: 0.5) {
+    opacity: @opacity;
 }
 
 .box {
-    .box-opacity();
+    .box-opacity(0.9);
 }</pre>
                 </div>
 
@@ -290,16 +290,16 @@
                 
                 <div class="code less">
                     <h2>Box sizing <u class="compile">run</u></h2>
-                    
+
 <pre>
-.box-sizing () {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+.box-sizing (@box-sizing: border-box) {
+    -webkit-box-sizing: @box-sizing;
+    -moz-box-sizing: @box-sizing;
+    box-sizing: @box-sizing;
 }
 
 .box {
-    .box-sizing();
+    .box-sizing(border-box);
 }</pre>
                 </div>
 
@@ -308,7 +308,7 @@
                 </div>
             </div>
             <!-- end rule -->
-            
+
             <!-- begin rule -->
             <div class="rule">
                 
@@ -316,13 +316,13 @@
                     <h2>Background size <u class="compile">run</u></h2>
                     
 <pre>
-.box-bgsize () {
-    -webkit-background-size: 100% 100%;
-    background-size: 100% 100%;
+.box-bgsize (@size: 100% 100%) {
+    -webkit-background-size: @size;
+    background-size: @size;
 }
 
 .box {
-    .box-bgsize();
+    .box-bgsize(50% 50%);
 }</pre>
                 </div>
 
@@ -337,19 +337,19 @@
                 
                 <div class="code less">
                     <h2>Box columns <u class="compile">run</u></h2>
-                    
+
 <pre>
-.box-columns () {
-    -webkit-column-count: 2;
-    -webkit-column-gap: 15px;
-    -moz-column-count: 2;
-    -moz-column-gap: 15px;
-    column-count: 2;
-    column-gap: 15px;
+.box-columns (@count: 2, @gap: 15px) {
+    -webkit-column-count: @count;
+    -webkit-column-gap: @gap;
+    -moz-column-count: @count;
+    -moz-column-gap: @gap;
+    column-count: @count;
+    column-gap: @gap;
 }
 
 .box {
-    .box-columns();
+    .box-columns(4, 30px);
 }</pre>
                 </div>
 
@@ -361,16 +361,16 @@
 
             <!-- begin rule -->
             <div class="rule">
-                
+
                 <div class="code less">
                     <h2>Animation <u class="compile">run</u></h2>
                     
 <pre>
-.box-animation () {
-    -webkit-animation: myanim 5s infinite;
-    -moz-animation: myanim 5s infinite;
-    -o-animation: myanim 5s infinite;
-    animation: myanim 5s infinite;
+.box-animation (@animation, @timer, @length) {
+    -webkit-animation: @animation @timer @length;
+    -moz-animation: @animation @timer @length;
+    -o-animation: @animation @timer @length;
+    animation: @animation @timer @length;
 }
 @-webkit-keyframes myanim {
     0%   { opacity: 0.0; }
@@ -394,7 +394,7 @@
 }
 
 .box {
-    .box-animation();
+    .box-animation(myanim, 5s, infinite);
 }</pre>
                 </div>
 
@@ -411,13 +411,13 @@
                     <h2>Font face <u class="compile">run</u></h2>
                     
 <pre>
-.font-face () {
+.WebFont () {
     font-family: 'WebFont';
     src: url('myfont.woff') format('woff'), url('myfont.ttf') format('truetype');
 }
 
 .box {
-    .font-face();
+    .WebFont();
 }</pre>
                 </div>
 
@@ -434,14 +434,14 @@
                     <h2>Tab size <u class="compile">run</u></h2>
                     
 <pre>
-.tab-size () {
-    -moz-tab-size: 2;
-    -o-tab-size: 2;
-    tab-size: 2;
+.tab-size (@tab-size) {
+    -moz-tab-size: @tab-size;
+    -o-tab-size: @tab-size;
+    tab-size: @tab-size;
 }
 
 .box {
-    .tab-size();
+    .tab-size(2);
 }</pre>
                 </div>
 
