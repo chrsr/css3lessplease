@@ -98,11 +98,21 @@ section.css3 {
     font-size: 0.9em;
 }
 
+.code pre.less {
+    color: lightblue;
+}
+
+.code pre.scss {
+    color: pink;
+}
+
 .output pre {
     color: #dec065;
 }
 
-.compile {
+.compile,
+.compile-scss,
+.compile-less {
     position: absolute;
     top: 0.6em;
     right: 0.6em;
@@ -113,4 +123,8 @@ section.css3 {
     cursor: pointer;
     text-decoration: none;
     border: solid 1px #81c267;
+}
+
+.compile-less {
+    right: 7em;
 }

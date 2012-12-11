@@ -4,7 +4,8 @@
 var css3lessplease = (function () {
     var parser = new(less.Parser),
         selectors = {
-            compile: ".compile",
+            compileLess: ".compile .compile-less",
+            compileScss: ".compile-scss",
             css: "#css"
         };
 
@@ -24,22 +25,42 @@ var css3lessplease = (function () {
         });
     }
 
+    function scssParser(scss, output) {
+        // do this in node.js
+        $.post("http://sass-lang.com/try.html", { syntax: "scss" }, function (response) {
+            //output.html(response);
+        });
+    }
+
     function applyCss(css) {
         $(selectors.css).append(css);
     }
 
     return {
         init: function () {
-            $(selectors.compile).on("click", function () {
+
+            $(selectors.compileLess).on("click", function () {
                 var less,
                     output,
                     $this = $(this).parents(".rule");
 
-                less = $this.find(".code pre").html();
+                less = $this.find(".code pre.less").html();
                 output = $this.find(".output pre");
 
                 lessParser(less, output);
             });
+
+            $(selectors.compileScss).on("click", function () {
+                var scss,
+                    output,
+                    $this = $(this).parents(".rule");
+
+                scss = $this.find(".code pre.scss").html();
+                output = $this.find(".output pre");
+
+                scssParser(scss, output);
+            });
+
         }
     };
 }());

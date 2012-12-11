@@ -23,8 +23,6 @@
         TODO
         * Parameterize the less mixins
         * content editable to edit values
-        * maybe integrate something like prism for code preview
-        * font: Source Code Pro
         -->
 
         <header>
@@ -41,10 +39,20 @@
             <!-- begin rule -->
             <div class="rule">
 
-                <div class="code less">
-                    <h2>Border radius <u class="compile">run</u></h2>
-                    
-<pre>
+                <div class="code">
+                    <h2>Border radius <u class="compile-less">run less</u> <u class="compile-scss">run scss</u></h2>
+<pre class="less">
+.box-round (@radius: 12px) {
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+    -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+}
+
+.box {
+    .box-round(24px);
+}</pre>
+
+<pre class="scss">
 .box-round (@radius: 12px) {
     -webkit-border-radius: @radius;
     border-radius: @radius;
